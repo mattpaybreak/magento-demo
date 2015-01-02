@@ -45,10 +45,6 @@ a2enmod rewrite
 # Make session directory writable
 chmod -R 777 /var/lib/php5
 
-# Link source public to public www
-rm -R /var/www/html
-ln -s /vagrant/public /var/www/html
-
 # Configure default vhost
 cat /vagrant/boxconfig/vhost > /etc/apache2/sites-available/000-default.conf
 
@@ -83,25 +79,29 @@ echo '======================================'
 echo '| Installing Magento'
 echo '======================================'
 
-sudo apt-get install mysql-server
+export DEBIAN_FRONTEND=noninteractive
+apt-get -q -y install mysql-server
 
-sudo apt-get install php5-curl
-sudo apt-get install php5-mcrypt
-sudo apt-get install php5-gd
-sudo apt-get install php5-mysql
+apt-get -y install php5-curl
+apt-get -y install php5-mcrypt
+apt-get -y install php5-gd
+apt-get -y install php5-mysql
+php5enmod mcrypt
 
-sudo php5enmod mcrypt
-
-sudo service apache2 restart
+service apache2 restart
 
 # cd /vagrant
 # composer install
 
 # Magento shiznit
 # Use mirror since official links are slow as fuck
-wget http://mirror.gunah.eu/magento/magento-1.9.1.0.tar.gz
+
+# TODO fix this shit
+
+cd /var/www/html
+wget http://mirror.gunah.eu/magento/magento-1.9.1.0.tar.gz -o /dev/null
 tar -zxvf magento-1.9.1.0.tar.gz
-wget http://mirror.gunah.eu/magento/sample-data/magento-sample-data-1.9.0.0.tar.gz
+wget http://mirror.gunah.eu/magento/sample-data/magento-sample-data-1.9.0.0.tar.gz -o /dev/null
 tar -zxvf magento-sample-data-1.9.0.0.tar.gz
 
 # this throws an error - but it doesn't matter ;)
@@ -115,9 +115,10 @@ echo "create database magento" | mysql -u root -ppassword
 mysql -h localhost -u root -ppassword magento < data.sql
 chmod o+w var var/.htaccess app/etc
 
-# Must now set up using the Magento install tool
-
+# TODO uncomment this
 # rm -rf magento/ magento-sample-data-1.9.0.0/ magento-1.9.0.0.tar.gz magento-sample-data-1.9.0.0.tar.gz data.sql
+
+# Must now set up using the Magento install tool
 # http://localhost:8001/
 # admin password is: password123
 # encryption key is: a575a38603bacf47025d552158f84ca0
