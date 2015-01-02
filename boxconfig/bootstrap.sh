@@ -108,12 +108,10 @@ mv magento/* magento/.htaccess* .
 chmod -R o+w media var
 
 # Set up magento database
-echo "create database magento" | mysql -u root -ppassword
-mysql -h localhost -u root -ppassword magento < data.sql
+echo "create database magento" | mysql -u root
+mysql -h localhost -u root magento < data.sql
 chmod o+w var var/.htaccess app/etc
-
-# TODO uncomment this
-# rm -rf magento/ magento-sample-data-1.9.0.0/ magento-1.9.0.0.tar.gz magento-sample-data-1.9.0.0.tar.gz data.sql
+rm -rf magento/ magento-sample-data-1.9.0.0/ magento-1.9.0.0.tar.gz magento-sample-data-1.9.0.0.tar.gz data.sql
 
 # Must now set up using the Magento install tool
 # http://localhost:8001/
