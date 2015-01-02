@@ -95,9 +95,6 @@ service apache2 restart
 
 # Magento shiznit
 # Use mirror since official links are slow as fuck
-
-# TODO fix this shit
-
 cd /var/www/html
 wget http://mirror.gunah.eu/magento/magento-1.9.1.0.tar.gz -o /dev/null
 tar -zxvf magento-1.9.1.0.tar.gz
