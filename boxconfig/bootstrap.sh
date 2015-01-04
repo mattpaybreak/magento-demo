@@ -86,12 +86,11 @@ apt-get -y install php5-mcrypt
 apt-get -y install php5-gd
 apt-get -y install php5-mysql
 
-apt-get install git
-
 php5enmod mcrypt
 
 service apache2 restart
 
+apt-get install git
 bash /vagrant/boxconfig/install_magento.sh
 bash /vagrant/boxconfig/install_paybreak.sh
 
