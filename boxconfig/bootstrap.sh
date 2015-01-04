@@ -113,6 +113,8 @@ mysql -h localhost -u root magento < data.sql
 chmod o+w var var/.htaccess app/etc
 rm -rf magento/ magento-sample-data-1.9.0.0/ magento-1.9.0.0.tar.gz magento-sample-data-1.9.0.0.tar.gz data.sql
 
+echo "Install process worked :)"
+
 # Must now set up using the Magento install tool
 # http://localhost:8001/
 # admin password is: password123
