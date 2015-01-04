@@ -74,9 +74,8 @@ echo '======================================'
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/bin/composer
 
-
 echo '======================================'
-echo '| Installing Magento'
+echo '| Installing PHP extras'
 echo '======================================'
 
 export DEBIAN_FRONTEND=noninteractive
@@ -86,34 +85,16 @@ apt-get -y install php5-curl
 apt-get -y install php5-mcrypt
 apt-get -y install php5-gd
 apt-get -y install php5-mysql
+
+apt-get install git
+
 php5enmod mcrypt
 
 service apache2 restart
 
-# cd /vagrant
-# composer install
+bash /vagrant/boxconfig/install_magento.sh
+bash /vagrant/boxconfig/install_paybreak.sh
 
-# Magento shiznit
-# Use mirror since official links are slow as fuck
-cd /var/www/html
-wget http://mirror.gunah.eu/magento/magento-1.9.1.0.tar.gz -o /dev/null
-tar -zxvf magento-1.9.1.0.tar.gz
-wget http://mirror.gunah.eu/magento/sample-data/magento-sample-data-1.9.0.0.tar.gz -o /dev/null
-tar -zxvf magento-sample-data-1.9.0.0.tar.gz
-
-# this throws an error - but it doesn't matter ;)
-mv magento-sample-data-1.9.0.0/media/* magento/media/
-mv magento-sample-data-1.9.0.0/magento_sample_data_for_1.9.0.0.sql magento/data.sql
-mv magento/* magento/.htaccess* .
-chmod -R o+w media var
-
-# Set up magento database
-echo "create database magento" | mysql -u root
-mysql -h localhost -u root magento < data.sql
-chmod o+w var var/.htaccess app/etc
-rm -rf magento/ magento-sample-data-1.9.0.0/ magento-1.9.0.0.tar.gz magento-sample-data-1.9.0.0.tar.gz data.sql
-
-echo "Install process worked :)"
 
 # Must now set up using the Magento install tool
 # http://localhost:8001/

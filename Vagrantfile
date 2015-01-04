@@ -8,4 +8,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, guest: 80, host: 8001
     config.vm.provision :shell, :path => "boxconfig/bootstrap.sh"
     config.vm.synced_folder ".", "/vagrant" , :owner=> 'www-data', :group=>'www-data'
+
+    config.vm.provider "virtualbox" do |v|
+           v.customize ["modifyvm", :id, "--memory", 1024, "--ioapic", "on", "--cpus", 2]
+       end
 end
