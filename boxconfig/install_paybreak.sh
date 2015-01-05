@@ -23,6 +23,7 @@ ln -s /vagrant/paybreakmagento Magento
 # Link config file to magento
 ln -s /vagrant/paybreakmagento/PayBreak_Magento.xml /var/www/html/app/etc/modules/PayBreak_Magento.xml
 
-# Set up redirect template
+# Set up redirect template (must be copied, ln -s won't work)
 mkdir /var/www/html/app/design/frontend/base/default/template/paybreakmagento/
-ln -s /vagrant/paybreakmagento/redirect.phtml /var/www/html/app/design/frontend/base/default/template/paybreakmagento/redirect.phtml
+cp /vagrant/paybreakmagento/redirect.phtml /var/www/html/app/design/frontend/base/default/template/paybreakmagento
+/redirect.phtml

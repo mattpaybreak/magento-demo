@@ -93,9 +93,5 @@ service apache2 restart
 bash /vagrant/boxconfig/install_magento.sh
 bash /vagrant/boxconfig/install_paybreak.sh
 
-
-# Must now set up using the Magento install tool
-# http://localhost:8001/
-# admin password is: password123
-# encryption key is: a575a38603bacf47025d552158f84ca0
+echo "Now go to http://127.0.0.1:8001/ and run through the install process"
 
