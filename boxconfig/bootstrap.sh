@@ -90,7 +90,6 @@ php5enmod mcrypt
 
 service apache2 restart
 
-apt-get install git
 bash /vagrant/boxconfig/install_magento.sh
 bash /vagrant/boxconfig/install_paybreak.sh
 
