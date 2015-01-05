@@ -25,5 +25,4 @@ ln -s /vagrant/paybreakmagento/PayBreak_Magento.xml /var/www/html/app/etc/module
 
 # Set up redirect template (must be copied, ln -s won't work)
 mkdir /var/www/html/app/design/frontend/base/default/template/paybreakmagento/
-cp /vagrant/paybreakmagento/redirect.phtml /var/www/html/app/design/frontend/base/default/template/paybreakmagento
-/redirect.phtml
+cp /vagrant/paybreakmagento/redirect.phtml /var/www/html/app/design/frontend/base/default/template/paybreakmagento/redirect.phtml
