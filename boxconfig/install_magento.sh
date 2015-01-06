@@ -7,7 +7,7 @@ echo '======================================'
 
 # clean up any previous runs
 cd /var/www/html && rm * -rf
-echo "drop database magento" | mysql -u root
+echo "drop database if exists magento" | mysql -u root
 
 # Don't DL magento files if they're already there.
 if [ ! -d /vagrant/ignore ]; then
@@ -35,5 +35,4 @@ rm -rf magento/ magento-sample-data-1.9.0.0/
 
 # this enables showing errors in browser - easier debugging innit
 mv /var/www/html/errors/local.xml.sample /var/www/html/errors/local.xml
-
 echo "Magento installed!"

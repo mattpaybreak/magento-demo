@@ -27,3 +27,7 @@ ln -s /vagrant/paybreakmagento/PayBreak_Magento.xml /var/www/html/app/etc/module
 mkdir /var/www/html/app/design/frontend/base/default/template/paybreakmagento/
 cp /vagrant/paybreakmagento/redirect.phtml /var/www/html/app/design/frontend/base/default/template/paybreakmagento/redirect.phtml
 
+cd /vagrant/paybreakmagento
+composer install
+
+echo "PayBreak plugin installed!"
