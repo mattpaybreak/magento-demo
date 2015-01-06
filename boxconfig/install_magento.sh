@@ -9,7 +9,7 @@ echo '======================================'
 cd /var/www/html && rm * -rf
 echo "drop database magento" | mysql -u root
 
-# this allows caching of downloaded files.
+# Don't DL magento files if they're already there.
 if [ ! -d /vagrant/ignore ]; then
   	mkdir /vagrant/ignore && cd /vagrant/ignore
   	wget http://mirror.gunah.eu/magento/magento-1.9.1.0.tar.gz -o /dev/null
@@ -32,5 +32,8 @@ echo "create database magento" | mysql -u root
 mysql -h localhost -u root magento < data.sql
 chmod o+w var var/.htaccess app/etc
 rm -rf magento/ magento-sample-data-1.9.0.0/
+
+# this enables showing errors in browser - easier debugging innit
+mv /var/www/html/errors/local.xml.sample /var/www/html/errors/local.xml
 
 echo "Magento installed!"
