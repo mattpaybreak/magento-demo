@@ -88,8 +88,6 @@ apt-get -y install php5-mysql
 
 php5enmod mcrypt
 
-service apache2 restart
-
 bash /vagrant/boxconfig/install_magento.sh
 bash /vagrant/boxconfig/install_paybreak.sh
 

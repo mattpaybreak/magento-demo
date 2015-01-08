@@ -30,4 +30,6 @@ cp /vagrant/paybreakmagento/redirect.phtml /var/www/html/app/design/frontend/bas
 cd /vagrant/paybreakmagento
 composer install
 
+service apache2 restart
+
 echo "PayBreak plugin installed!"
