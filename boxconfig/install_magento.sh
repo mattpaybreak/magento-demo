@@ -36,6 +36,3 @@ rm -rf magento/ magento-sample-data-1.9.0.0/
 # this enables showing errors in browser - easier debugging innit
 mv /var/www/html/errors/local.xml.sample /var/www/html/errors/local.xml
 echo "Magento installed!"
-
-# Copy the tweaked apache2 conf file across
-cp /vagrant/boxconfig.sh /etc/apache2/sites-enabled/000-default.conf
