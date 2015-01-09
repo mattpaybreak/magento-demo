@@ -37,3 +37,7 @@ rm -rf magento/ magento-sample-data-1.9.0.0/
 # this enables showing errors in browser - easier debugging innit
 mv /var/www/html/errors/local.xml.sample /var/www/html/errors/local.xml
 echo "Magento installed!"
+
+# allow symlinks for templates
+echo "USE magento; UPDATE core_config_data SET value = '1' WHERE path = 'dev/template/allow_symlink';" | mysql -u root
+

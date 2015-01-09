@@ -1,14 +1,9 @@
 <VirtualHost *:80>
-    ServerName semaphore.local
-
+    ServerName magento.local
     DocumentRoot /var/www/html
-    <Directory />
-        Options FollowSymLinks
-        AllowOverride All
-    </Directory>
 
     <Directory /var/www/html/>
-        Options Indexes FollowSymLinks
+        Options FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>

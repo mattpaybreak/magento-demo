@@ -26,7 +26,7 @@ ln -s /vagrant/paybreakmagento/PayBreak_Magento.xml /var/www/html/app/etc/module
 
 # Set up redirect template (must be copied, ln -s won't work)
 mkdir /var/www/html/app/design/frontend/base/default/template/paybreakmagento/
-cp /vagrant/paybreakmagento/templates/* /var/www/html/app/design/frontend/base/default/template/paybreakmagento/
+ln -s /vagrant/paybreakmagento/templates /var/www/html/app/design/frontend/base/default/template/paybreakmagento
 cd /vagrant/paybreakmagento
 composer install
 
