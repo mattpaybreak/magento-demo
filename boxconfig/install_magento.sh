@@ -1,3 +1,4 @@
+#!/bin/sh
 # Sets up Magento
 # @author MN
 

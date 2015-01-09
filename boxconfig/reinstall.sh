@@ -1,3 +1,4 @@
+#!/bin/sh
 # Useful for testing - reinstalls magento/PayBreak without having to rebuild the whole box
 
 rm -rf /vagrant/paybreakmagento
